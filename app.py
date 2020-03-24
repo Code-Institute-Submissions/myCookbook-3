@@ -24,11 +24,21 @@ def get_recipes():
 def add_item():
     return render_template("additem.html")
     
+@app.route('/add_recipe')
+def add_recipe():
+    return render_template("addrecipe.html")
+    
 @app.route('/insert_item', methods=['POST'])
 def insert_item():
     items = mongo.db.shoppinglist
     items.insert_one(request.form.to_dict())
     return redirect(url_for('get_shopping'))
+    
+@app.route('/insert_recipe', methods=['POST'])
+def insert_recipe():
+    recipes = mongo.db.recipes
+    recipes.insert_one(request.form.to_dict())
+    return redirect(url_for('get_recipes'))
     
 @app.route('/edit_item/<item_id>')
 def edit_item(item_id):
