@@ -1,0 +1,38 @@
+.btn_small {
+    height: 24px;
+    width: 60px;
+    line-height: 24px;
+    margin: 5px 5px;
+    padding: 0 0.5em;
+}
+
+.item_header {
+    margin-top: 5px;
+    padding-left: 25%;
+    font-size: 20px;
+}
+
+.btn-remove {
+    width: 80px;
+}
+
+#main-nav {
+    font-size: 24px;
+}
+
+.nav-wrapper {
+    text-align: center;
+}
+
+.edit-btn {
+    text-align: right;
+    padding-left:10px;
+}
+
+#shopping-header {
+    text-align: center;
+}
+
+.add_can_btns {
+    text-align: center;
+}

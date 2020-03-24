@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+<h3 class="center">Edit Item</h3>
+<div class="row">
+    <form action="{{ url_for('edit_item', item_id=item._id) }}" method="POST" class="col s12">
+        <div class="row">
+        <div class="input-field col s6">
+            <!--<i class="material-icons prefix">add_shopping_cart</i>-->
+            <input value="{{ shoppinglist.item_name }}" id="item_name" name="item_name" type="text" class="validate">
+            <label for="item_name">Name of item</label>
+        </div>
+        
+        <div class="input-field col s6">
+            <select id="quantity" name="item_quantity">
+              <option value="{{ shoppinglist.item_quantity }}" disabled selected>Choose your option</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+            <label>Quantity</label>
+        </div>
+      </div>
+      
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="item_info" name="item_info" class="materialize-textarea" value="{{ shoppinglist.item_info }}" ></textarea>
+          <label for="item_info">Item information</label>
+        </div>
+      </div>
+      
+</div>
+<div class="row add_can_btns">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Add Item
+            <i class="material-icons right">add_shopping_cart</i>
+        </button>
+        <a href="{{ url_for('get_shopping') }}" class="waves-effect waves-light btn grey">
+            <i class="material-icons right">cancel</i>Cancel
+        </a>
+</div>
+
+
+
+</div>
+
+
+{% endblock %}
