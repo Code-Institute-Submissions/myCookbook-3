@@ -20,6 +20,10 @@ def get_shopping():
 def get_recipes():
     return render_template("recipes.html", recipe=mongo.db.recipes.find())
     
+@app.route('/get_full_recipe')
+def get_full_recipe():
+    return render_template("full_recipe.html", recipe=mongo.db.recipes.find())
+    
 @app.route('/add_item')
 def add_item():
     return render_template("additem.html")

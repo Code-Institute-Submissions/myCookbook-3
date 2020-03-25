@@ -1,3 +1,12 @@
+.container .row {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row .col.s9 {
+    margin-left: 0;
+}
+
 .btn_small {
     height: 24px;
     width: 60px;
@@ -12,8 +21,32 @@
     font-size: 20px;
 }
 
+.recipe_header {
+    font-size: 20px;
+    margin-left: 0;
+}
+
+.fullrec_header {
+    margin-top: 30px;
+}
+
+.recipe_img {
+    height: 200px;
+    width: 240px;
+}
+
+.img_resize {
+    width:50%;
+    height: auto;
+    border-radius: 12%;
+}
+
 .btn-remove {
     width: 80px;
+}
+
+.recipe_buttons {
+    margin-bottom: 30px;
 }
 
 #main-nav {

@@ -5,15 +5,13 @@
     <ul class="collapsible" data-collapsible="accordion">
             {% for r in recipe %}
             <li>
-                <div class="collapsible-header">
-                    <div class="col s3">
-                       
-                        <a href="#" class="waves-effect waves-light btn btn_small">Edit</a>
-                        
-                        
+                <div class="row collapsible-header">
+                    
+                    <div class="col s9 recipe_header">
+                        <strong>{{ r.recipe_name }}</strong>
                     </div>
-                    <div class="item_header col s3">
-                        <strong>{{r.recipe_name}}</strong>
+                    <div class="s3">
+                        <img src="{{ r.image }}" class="recipe_img"></img>
                     </div>
                     
                 </div>
@@ -24,7 +22,7 @@
                 </span>
                 </div>
                 <div class="col s12 edit-btn">
-                        <a href="#" class="waves-effect waves-light btn btn_small blue">See full recipe</a>
+                        <a href="{{ url_for('get_full_recipe') }}" class="waves-effect waves-light btn blue">See full recipe</a>
                     </div>
                 </div>
             </li>
