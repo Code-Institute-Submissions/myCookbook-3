@@ -49,6 +49,11 @@ def edit_item(item_id):
     the_item = mongo.db.shoppinglist.find_one({"_id": ObjectId(item_id)})
     return render_template("edititem.html", item=the_item)
     
+@app.route('/edit_recipe/<recipe_id>')
+def edit_recipe(recipe_id):
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("edit_recipe.html", recipe=the_recipe)
+    
 @app.route('/delete_item/<item_id>')
 def delete_item(item_id):
     mongo.db.shoppinglist.remove({'_id':ObjectId(item_id)})
@@ -65,7 +70,22 @@ def update_item(item_id):
     })
     return redirect(url_for('get_shopping'))
 
-
+@app.route('/update_recipe/<recipe_id>', methods=["POST"])
+def update_recipe(recipe_id):
+    recipes = mongo.db.recipes
+    recipes.update( {'_id': ObjectId(recipe_id)},
+    {
+        'recipe_name':request.form.get('recipe_name'),
+        'prep_time':request.form.get('prep_time'),
+        'cook_time': request.form.get('cook_time'),
+        'recipe_desc': request.form.get('recipe_desc'),
+        'ingredients': request.form.get('ingredients'),
+        'method': request.form.get('method'),
+        'image': request.form.get('image'),
+        'is_vegetarian': request.form.get('is_vegetarian')
+        
+    })
+    return redirect(url_for('get_full_recipe'))
     
 
 if __name__ == '__main__':
