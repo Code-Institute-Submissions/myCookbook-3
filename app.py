@@ -30,7 +30,7 @@ def add_item():
     
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template("addrecipe.html")
+    return render_template("add_recipe.html")
     
 @app.route('/insert_item', methods=['POST'])
 def insert_item():
