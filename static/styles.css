@@ -33,12 +33,18 @@
 .recipe_img {
     height: 200px;
     width: 240px;
+    border-radius: 25px;
 }
 
 .img_resize {
     width:50%;
     height: auto;
     border-radius: 12%;
+}
+
+#veggie {
+    height:30px;
+    width: auto;
 }
 
 .btn-remove {
@@ -68,4 +74,8 @@
 
 .add_can_btns {
     text-align: center;
+}
+
+#prep_para {
+    margin-top: 0;
 }

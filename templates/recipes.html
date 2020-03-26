@@ -7,23 +7,39 @@
             <li>
                 <div class="row collapsible-header">
                     
-                    <div class="col s9 recipe_header">
+                    <div class="col s12 recipe_header">
                         <strong>{{ r.recipe_name }}</strong>
                     </div>
-                    <div class="s3">
-                        <img src="{{ r.image }}" class="recipe_img"></img>
-                    </div>
+                    
                     
                 </div>
-                <div class="collapsible-body">
-                <div class="col s12">
+                <div class="row collapsible-body">
+                
+                <div class="col s3">
+                    <img src="{{ r.image }}" class="recipe_img"></img>
+                </div>
+                <div class="col s6 (offset-by-3)">
                     <span>
                     {{r.recipe_desc}} 
                 </span>
                 </div>
-                <div class="col s12 edit-btn">
+                <div class="center col s3">
+                    
+                        <p id="prep_para"><strong>Prep time:</strong> {{r.prep_time}} minutes</p>
+                        <p><strong>Cook time:</strong> {{r.cook_time}} minutes</p>
+                        {% for r in recipes %}
+                            {% if r.is_vegetarian == True %}
+                                <img id="veggie" src="{{ url_for('static', filename='img/veggie.jpg') }}"></img>
+                            {% else %}
+                            {% endif %}
+                        {% endfor %}
+                        
                         <a href="{{ url_for('get_full_recipe') }}" class="waves-effect waves-light btn blue">See full recipe</a>
-                    </div>
+                        
+                    
+                </div>
+                
+                
                 </div>
             </li>
             {% endfor %}
