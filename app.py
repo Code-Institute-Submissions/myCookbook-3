@@ -7,8 +7,8 @@ if path.exists("env.py"):
     import env
 
 app = Flask(__name__)
-app.config["MONGO_URI"] = os.getenv("MONGO_URI")
-app.config["MONGO_DBNAME"] = 'myCookbook'
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 
 
 mongo = PyMongo(app)
@@ -93,6 +93,6 @@ def update_recipe(recipe_id):
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')),
+            port=os.environ.get('PORT'),
             debug=True)
 
