@@ -27,12 +27,13 @@
                     
                         <p id="prep_para"><strong>Prep time:</strong> {{r.prep_time}} minutes</p>
                         <p><strong>Cook time:</strong> {{r.cook_time}} minutes</p>
-                        {% for r in recipes %}
+                        <p>
+                        
                             {% if r.is_vegetarian %}
                                 <img src="{{ url_for('static', filename='img/veggie.jpg') }}" id="veggie">
                             {% endif %}
-                        {% endfor %}
                         
+                        </p>
                         <a href="{{ url_for('get_full_recipe', recipe_id=r._id) }}" class="waves-effect waves-light btn blue">See full recipe</a>
                         
                     

@@ -46,7 +46,7 @@ def insert_item():
 def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
-    return render_template("recipes.html", recipes=mongo.db.recipes.find())
+    return redirect(url_for('get_recipes'))
     
 @app.route('/edit_item/<item_id>')
 def edit_item(item_id):
