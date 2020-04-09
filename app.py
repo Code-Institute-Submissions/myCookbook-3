@@ -89,11 +89,11 @@ def update_recipe(recipe_id):
         'is_vegetarian': request.form.get('is_vegetarian')
         
     })
-    return render_template("recipes.html", recipes=mongo.db.recipes.find())
+    return redirect(url_for('get_recipes'))
     
 
 if __name__ == '__main__':
-    app.run(host=os.environ.get('0.0.0.0'),
-            port=os.environ.get('PORT'),
+    app.run(host='0.0.0.0',
+            port=(os.environ.get('PORT')),
             debug=True)
 
