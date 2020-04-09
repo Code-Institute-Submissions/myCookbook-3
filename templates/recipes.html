@@ -33,7 +33,7 @@
                             {% endif %}
                         {% endfor %}
                         
-                        <a href="{{ url_for('get_full_recipe') }}" class="waves-effect waves-light btn blue">See full recipe</a>
+                        <a href="{{ url_for('get_full_recipe', recipe_id=r._id) }}" class="waves-effect waves-light btn blue">See full recipe</a>
                         
                     
                 </div>

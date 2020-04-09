@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for
-from flask_pymongo import PyMongo
+from pymongo import MongoClient
+#from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
 if path.exists("env.py"):
@@ -9,9 +10,15 @@ if path.exists("env.py"):
 app = Flask(__name__)
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+DBS_NAME = "myCookbook"
+COLLECTION_NAME = "shoppinglist"
+MONGO_URI = os.environ.get("MONGO_URI")
 
 
-mongo = PyMongo(app)
+#mongo = pymongo(app)
+mongo = MongoClient(MONGO_URI)[DBS_NAME][COLLECTION_NAME]
+db = mongo[DBS_NAME]
+collection = db[COLLECTION_NAME]
 
 
 @app.route('/')
@@ -23,9 +30,9 @@ def get_shopping():
 def get_recipes():
     return render_template("recipes.html", recipe=mongo.db.recipes.find())
     
-@app.route('/get_full_recipe')
-def get_full_recipe():
-    return render_template("full_recipe.html", recipe=mongo.db.recipes.find())
+@app.route('/get_full_recipe/<recipe_id>')
+def get_full_recipe(recipe_id):
+    return render_template("full_recipe.html", recipe=mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)}))
     
 @app.route('/add_item')
 def add_item():
