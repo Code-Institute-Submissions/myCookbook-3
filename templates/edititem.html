@@ -7,13 +7,13 @@
         <div class="row">
         <div class="input-field col s6">
             <!--<i class="material-icons prefix">add_shopping_cart</i>-->
-            <input value="{{ shoppinglist.item_name }}" id="item_name" name="item_name" type="text" class="validate">
+            <input value="{{ item.item_name }}" id="item_name" name="item_name" type="text" class="validate">
             <label for="item_name">Name of item</label>
         </div>
         
         <div class="input-field col s6">
             <select id="quantity" name="item_quantity">
-              <option value="{{ shoppinglist.item_quantity }}" disabled selected>Choose your option</option>
+              <option disabled selected>{{ item.item_quantity }}</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -31,7 +31,7 @@
       
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="item_info" name="item_info" class="materialize-textarea" value="{{ shoppinglist.item_info }}" ></textarea>
+          <textarea id="item_info" name="item_info" class="materialize-textarea" value="{{ item.item_info }}" >{{ item.item_info }}</textarea>
           <label for="item_info">Item information</label>
         </div>
       </div>

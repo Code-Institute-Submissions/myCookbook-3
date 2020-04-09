@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for
 from pymongo import MongoClient
-#from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
 if path.exists("env.py"):
@@ -10,15 +10,9 @@ if path.exists("env.py"):
 app = Flask(__name__)
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
-DBS_NAME = "myCookbook"
-COLLECTION_NAME = "shoppinglist"
-MONGO_URI = os.environ.get("MONGO_URI")
 
 
-#mongo = pymongo(app)
-mongo = MongoClient(MONGO_URI)[DBS_NAME][COLLECTION_NAME]
-db = mongo[DBS_NAME]
-collection = db[COLLECTION_NAME]
+mongo = PyMongo(app)
 
 
 @app.route('/')
@@ -46,13 +40,13 @@ def add_recipe():
 def insert_item():
     items = mongo.db.shoppinglist
     items.insert_one(request.form.to_dict())
-    return redirect(url_for('get_shopping'))
+    return render_template("shoppinglist.html", shoppinglist=mongo.db.shoppinglist.find())
     
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
-    return redirect(url_for('get_recipes'))
+    return render_template("recipes.html", recipes=mongo.db.recipes.find())
     
 @app.route('/edit_item/<item_id>')
 def edit_item(item_id):
@@ -67,7 +61,7 @@ def edit_recipe(recipe_id):
 @app.route('/delete_item/<item_id>')
 def delete_item(item_id):
     mongo.db.shoppinglist.remove({'_id':ObjectId(item_id)})
-    return redirect(url_for('get_shopping'))
+    return render_template("shoppinglist.html", shoppinglist=mongo.db.shoppinglist.find())
     
 @app.route('/update_item/<item_id>', methods=["POST"])
 def update_item(item_id):
@@ -78,7 +72,7 @@ def update_item(item_id):
         'item_quantity':request.form.get('item_quantity'),
         'item_info': request.form.get('item_info')
     })
-    return redirect(url_for('get_shopping'))
+    return render_template("shoppinglist.html", shoppinglist=mongo.db.shoppinglist.find())
 
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
@@ -95,11 +89,11 @@ def update_recipe(recipe_id):
         'is_vegetarian': request.form.get('is_vegetarian')
         
     })
-    return redirect(url_for('get_full_recipe'))
+    return render_template("recipes.html", recipes=mongo.db.recipes.find())
     
 
 if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'),
+    app.run(host=os.environ.get('0.0.0.0'),
             port=os.environ.get('PORT'),
             debug=True)
 

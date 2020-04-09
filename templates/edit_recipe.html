@@ -37,19 +37,19 @@
       
       <div class="row">
         <div class="input-field col s6">
-            <textarea value="{{ recipe.recipe_desc }}" id="recipe_desc" name="recipe_desc" class="materialize-textarea"></textarea>
+            <textarea value="{{ recipe.recipe_desc }}" id="recipe_desc" name="recipe_desc" class="materialize-textarea">{{ recipe.recipe_desc }}</textarea>
             <label for="recipe_desc">Recipe description</label>
         </div>
         
         <div class="input-field col s6">
-            <textarea value="{{ recipe.ingredients }}" id="ingredients" name="ingredients" class="materialize-textarea"></textarea>
+            <textarea value="{{ recipe.ingredients }}" id="ingredients" name="ingredients" class="materialize-textarea">{{ recipe.ingredients }}</textarea>
             <label for="ingredients">Ingredients</label>
         </div>
       </div>
       
       <div class="row">
             <div class="input-field col s12">
-            <textarea value="{{ recipe.method }}" id="method" name="method" class="materialize-textarea"></textarea>
+            <textarea value="{{ recipe.method }}" id="method" name="method" class="materialize-textarea">{{ recipe.method }}</textarea>
             <label for="method">Method</label>
         </div>
       </div>
