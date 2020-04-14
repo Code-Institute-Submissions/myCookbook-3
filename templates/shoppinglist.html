@@ -1,30 +1,31 @@
 {% extends 'base.html'%} {% block content %}
 <div class="container">
     <h2 id="shopping-header">Your shopping list</h2>
-    <a href="{{ url_for('add_item') }}" class="waves-effect waves-light btn  blue">Add an item</a>
+    <a href="{{ url_for('add_item') }}" class="waves-effect waves-light btn blue">Add an item</a>
     <ul class="collapsible" data-collapsible="accordion">
             {% for item in shoppinglist %}
             <li>
-                <div class="collapsible-header">
-                    <div class="col s3">
-                       
-                        <a href="{{ url_for('delete_item', item_id=item._id) }}" class="waves-effect waves-light btn btn_small">Done</a>
-                        
-                        
-                    </div>
-                    <div class="col s3 edit-btn">
-                        <a href="{{ url_for('edit_item', item_id=item._id) }}" class="waves-effect waves-light btn btn_small blue">Edit</a>
-                    </div>
-                    
-                    <div class="item_header col s6">
+                <div class="row collapsible-header">
+
+                    <div class="item_header col s9">
                         <strong>{{item.item_name}}</strong> - {{item.item_quantity}}
+                    </div>
+
+                    <div class="col xl1 offset-xl2 m2 offset-m1 s3">   
+                        <a href="{{ url_for('delete_item', item_id=item._id) }}" class="waves-effect waves-light btn btn_small">Done</a>
                     </div>
                     
                 </div>
+
                 <div class="collapsible-body">
-                    <span>
-                    {{item.item_info}} 
-                </span>
+
+                    <div class="row">
+                        <div class="col s9">{{item.item_info}}</div>
+                        <div class="col s3 edit-btn">
+                            <a href="{{ url_for('edit_item', item_id=item._id) }}" class="waves-effect waves-light btn btn_small blue">Edit</a>
+                        </div>
+                    </div>
+                
                 </div>
             </li>
             {% endfor %}

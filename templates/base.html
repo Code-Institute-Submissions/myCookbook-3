@@ -11,17 +11,24 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" type="text/css" />
 </head>
 <body>
-    <nav>
+
+<nav>
     <div class="nav-wrapper">
-      
-      <!--<ul id="nav-mobile" class="center hide-on-med-and-down">-->
-      <ul id="nav-mobile main-nav">
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="hide-on-med-and-down">
+            <li><a href="{{ url_for('get_shopping') }}">Shopping List</a></li>
+            <li><a href="{{ url_for('get_recipes') }}">myCookbook</a></li>
+            <li><a href="#">Search</a></li>
+        </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
         <li><a href="{{ url_for('get_shopping') }}">Shopping List</a></li>
         <li><a href="{{ url_for('get_recipes') }}">myCookbook</a></li>
         <li><a href="#">Search</a></li>
-      </ul>
-    </div>
-  </nav>
+  </ul>
+
     {% block content %}
     {% endblock %}
     
@@ -32,18 +39,14 @@
             $('.collapsible').collapsible();
             $('select').material_select();
         });
-        $('.datepicker').pickadate({
-            selectMonths: true, // Creates a dropdown to control month
-            selectYears: 15, // Creates a dropdown of 15 years to control year,
-            today: 'Today',
-            clear: 'Clear',
-            close: 'Ok',
-            closeOnSelect: false // Close upon selecting a date,
+
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
         });
       
-      document.getElementById("matfix").addEventListener("click", function(e) {
-	e.stopPropagation();
-});
+        document.getElementById("matfix").addEventListener("click", function(e) {
+        e.stopPropagation();
+        });
   </script>
   
 </body>

@@ -17,8 +17,8 @@
 
 .item_header {
     margin-top: 5px;
-    padding-left: 25%;
     font-size: 20px;
+    margin-left: 0;
 }
 
 .recipe_header {
@@ -28,6 +28,7 @@
 
 .fullrec_header {
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .recipe_img {
@@ -65,11 +66,12 @@
 
 .edit-btn {
     text-align: right;
-    padding-left:10px;
+    
 }
 
 #shopping-header {
     text-align: center;
+    font-family: 'Indie Flower', cursive;
 }
 
 .add_can_btns {
@@ -78,4 +80,14 @@
 
 #prep_para {
     margin-top: 0;
+}
+
+.back_icon {
+    font-size: 60px;
+    margin-top: 30px;
+    color: #242222;
+}
+
+.back_icon:hover {
+    color: #2196F3;
 }
