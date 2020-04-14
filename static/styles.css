@@ -60,13 +60,8 @@
     font-size: 24px;
 }
 
-.nav-wrapper {
-    text-align: center;
-}
-
 .edit-btn {
     text-align: right;
-    
 }
 
 #shopping-header {
@@ -88,6 +83,18 @@
     color: #242222;
 }
 
+.menu-icon {
+    font-size: 40px;
+}
+
 .back_icon:hover {
     color: #2196F3;
+}
+
+.nav-links {
+    text-align: center !important;
+}
+
+#home-icon {
+    font-size: 60px;
 }
