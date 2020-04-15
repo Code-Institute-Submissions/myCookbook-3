@@ -1,0 +1,71 @@
+{% extends 'base.html'%} {% block content %}
+<div class="container">
+    <h2 id="shopping-header">Welcome to myCookbook</h2>
+    <div class="row">
+        <div class="col s12 l8">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est vitae labore harum illum reiciendis error quo eligendi iusto neque voluptas, quam praesentium excepturi suscipit beatae doloribus provident, sed, optio veritatis!</p>
+        </div>
+        <div class="col s12 l4">
+            <h4>Your shopping list</h4>
+
+            <a href="{{ url_for('get_shopping') }}" class="waves-effect waves-light btn blue">See more</a>
+        </div>
+    </div>
+    <div class="row">
+        
+        <div class="col s12">
+            
+            <div class="carousel carousel-slider center">
+                <div class="carousel-fixed-item center">
+                    <a class="btn waves-effect white grey-text darken-text-2">button</a>
+                </div>
+                <div class="carousel-item red white-text" href="#one!">
+                    <h2>First Panel</h2>
+                    <p class="white-text">This is your first panel</p>
+                </div>
+                <div class="carousel-item amber white-text" href="#two!">
+                    <h2>Second Panel</h2>
+                    <p class="white-text">This is your second panel</p>
+                </div>
+                <div class="carousel-item green white-text" href="#three!">
+                    <h2>Third Panel</h2>
+                    <p class="white-text">This is your third panel</p>
+                </div>
+                <div class="carousel-item blue white-text" href="#four!">
+                    <h2>Fourth Panel</h2>
+                    <p class="white-text">This is your fourth panel</p>
+                </div>
+            </div>
+
+            <!--<div class="col s12 l4">
+            <h4>Find some inspiration</h4>
+            <ul>
+                <li><a href="https://www.bbcgoodfood.com/recipes">BBC Good Food</a></li>
+                <li><a href="https://www.deliciousmagazine.co.uk/recipes/">Delicious. magazine</a></li>
+                <li><a href="https://www.goodtoknow.co.uk/all-recipes">Good to know recipes</a></li>
+            </ul>
+            </div>-->
+        
+        </div>
+    </div>
+</div>
+
+  <script type="text/javascript">
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.carousel');
+        var instances = M.Carousel.init(elems, options);
+    });
+
+    $(document).ready(function(){
+        $('.carousel').carousel();
+    });
+
+    $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true
+    });
+
+  </script>
+
+{% endblock %}
