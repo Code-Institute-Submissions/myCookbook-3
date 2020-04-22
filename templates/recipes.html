@@ -2,6 +2,22 @@
 <div class="container">
     <h2 id="shopping-header">Your Cookbook</h2>
     <a href="{{ url_for('add_recipe') }}" class="waves-effect waves-light btn  blue">Add a Recipe</a>
+
+    <!--Filter trigger-->
+    <a href="#" class="waves-effect waves-light btn dropdown-trigger right" data-target="filter_options">Filter</a>
+
+    <!--Filter Options-->
+    <ul id="filter_options" class="dropdown-content">
+    <li><a href="#!">Breakfast</a></li>
+    <li><a href="#!">Mains</a></li>
+    <li><a href="#!">Desserts</a></li>
+    <li><a href="#!">Snacks</a></li>
+    <li class="divider" tabindex="-1"></li>
+    <li><a href="#!">Vegetarian</a></li>
+    <li><a href="#!">&lt;30 minutes</a></li>
+    
+    </ul>
+
     <ul class="collapsible" data-collapsible="accordion">
             {% for r in recipe %}
             <li>
