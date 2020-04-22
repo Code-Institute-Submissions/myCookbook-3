@@ -30,7 +30,7 @@ def get_recipes():
     
 @app.route('/get_full_recipe/<recipe_id>')
 def get_full_recipe(recipe_id):
-    return render_template("full_recipe.html", recipe=mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)}))
+    return render_template("full_recipe.html", recipe=mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)}), categories=mongo.db.categories.find())
     
 @app.route('/add_item')
 def add_item():
@@ -38,7 +38,7 @@ def add_item():
     
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template("add_recipe.html")
+    return render_template("add_recipe.html", categories=mongo.db.categories.find())
     
 @app.route('/insert_item', methods=['POST'])
 def insert_item():
@@ -60,7 +60,8 @@ def edit_item(item_id):
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("edit_recipe.html", recipe=the_recipe)
+    all_categories = mongo.db.categories.find()
+    return render_template("edit_recipe.html", recipe=the_recipe, categories=all_categories)
     
 @app.route('/delete_item/<item_id>')
 def delete_item(item_id):
@@ -84,6 +85,7 @@ def update_recipe(recipe_id):
     recipes.update( {'_id': ObjectId(recipe_id)},
     {
         'recipe_name':request.form.get('recipe_name'),
+        'category':request.form.get('category'),
         'prep_time':request.form.get('prep_time'),
         'cook_time': request.form.get('cook_time'),
         'recipe_desc': request.form.get('recipe_desc'),
