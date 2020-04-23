@@ -67,6 +67,11 @@ def edit_recipe(recipe_id):
 def delete_item(item_id):
     mongo.db.shoppinglist.remove({'_id':ObjectId(item_id)})
     return render_template("shoppinglist.html", shoppinglist=mongo.db.shoppinglist.find())
+
+@app.route('/delete_recipe/<recipe_id>')
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({'_id':ObjectId(recipe_id)})
+    return render_template("recipes.html", recipe=mongo.db.recipes.find())
     
 @app.route('/update_item/<item_id>', methods=["POST"])
 def update_item(item_id):

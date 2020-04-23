@@ -15,6 +15,19 @@
     padding: 0 0.5em;
 }
 
+.delete_rec_btn {
+    margin-top: 5px;
+}
+
+.modal {
+    height: 200px;
+    width: 400px;
+}
+
+.modal-footer {
+    text-align: center;
+}
+
 .item_header {
     margin-top: 5px;
     font-size: 20px;
@@ -97,3 +110,40 @@
 #home-icon {
     font-size: 60px;
 }
+
+.text-white {
+    color: white;
+}
+
+/* Media Queries */
+@media (min-width:320px)  { 
+    .modal {
+    height: 200px;
+    width: 300px;
+    } 
+    /* smartphones, iPhone, portrait 480x320 phones */
+    }
+
+@media (min-width:481px)  { 
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
+    }
+
+@media (min-width:641px)  { 
+    .modal {
+    height: 200px;
+    width: 400px;
+    }
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
+    }
+
+@media (min-width:961px)  { 
+    /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+    }
+
+@media (min-width:1025px) { 
+    /* big landscape tablets, laptops, and desktops */ 
+    }
+
+@media (min-width:1281px) { 
+    /* hi-res laptops and desktops */ 
+    }
