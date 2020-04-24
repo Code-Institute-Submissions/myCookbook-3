@@ -5,14 +5,14 @@
 <div class="row">
     <form action="{{ url_for('insert_item') }}" method="POST" class="col s12">
         <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
             <!--<i class="material-icons prefix">add_shopping_cart</i>-->
             <input placeholder="Item name" id="item_name" name="item_name" type="text" class="validate">
             <label for="item_name">Name of item</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
             <select id="quantity" name="item_quantity">
-              <option value="" disabled selected>Choose your option</option>
+              <option value="" disabled selected>Choose quantity</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>

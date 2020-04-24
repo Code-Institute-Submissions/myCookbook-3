@@ -5,37 +5,38 @@
 <!--<div class="row">-->
     <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12">
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12 m6">
                 <input id="recipe_name" name="recipe_name" type="text" class="validate">
                 <label for="recipe_name">Name of recipe</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12 m6">
                 <select id="category" name="category">
                 <option value="" disabled selected>Choose Category</option>
                         {% for cat in categories %}
                         <option value="{{cat.category_name}}">{{cat.category_name}}</option>
                         {% endfor %}
                 </select>
-                <label>Recipe category</label>
-                
+                <label>Recipe category</label>  
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12 m6">
             <input id="prep_time" name="prep_time" type="text" class="validate">
                 <label for="prep_time">Prep time</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12 m6">
             <input id="cook_time" name="cook_time" type="text" class="validate">
                 <label for="cook_time">Cook time</label>
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12">
                 <textarea id="recipe_desc" name="recipe_desc" class="materialize-textarea"></textarea>
                 <label for="recipe_desc">Recipe description</label>
             </div>
-            <div class="input-field col s6">
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
                 <textarea id="ingredients" name="ingredients" class="materialize-textarea"></textarea>
                 <label for="ingredients">Ingredients</label>
             </div>
@@ -47,22 +48,21 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12 m6">
               <input id="image" name="image" type="text" class="validate">
                 <label for="image">Image source</label>
             </div>
-            <div class="col s6">
-                
-               <div class="switch">
-                <label>
-                  <input id="is_vegetarian" name="is_vegetarian" type="checkbox">
-                  <span class="lever"></span>
-                  Vegetarian
-                </label>
-            </div>
-        
+            <div class="col s12 m6"> 
+                <div class="switch">
+                    <label>
+                    <input id="is_vegetarian" name="is_vegetarian" type="checkbox">
+                    <span class="lever"></span>
+                    Vegetarian
+                    </label>
+                </div>
             </div>
         </div>
+        <div class="divider"></div>
 <!--</div>-->
 <div class="row add_can_btns">
     <button class="btn waves-effect waves-light" type="submit" name="action">Add recipe

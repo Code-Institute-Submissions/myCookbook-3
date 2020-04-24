@@ -6,13 +6,13 @@
     <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col s12">
       
         <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
             <!--<i class="material-icons prefix">add_shopping_cart</i>-->
             <input value="{{ recipe.recipe_name }}" id="recipe_name" name="recipe_name" type="text" class="validate">
             <label for="recipe_name">Name of recipe</label>
         </div>
         
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
             <select id="quantity" name="item_quantity">
               <option value="" disabled selected>Choose Category</option>
                     {% for cat in categories %}
@@ -24,28 +24,29 @@
       </div>
       
       <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
           <input value="{{ recipe.prep_time }}" id="prep_time" name="prep_time" type="text" class="validate">
             <label for="prep_time">Prep time</label>
         </div>
         
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
           <input value="{{ recipe.cook_time }}" id="cook_time" name="cook_time" type="text" class="validate">
             <label for="cook_time">Cook time</label>
         </div>
       </div>
       
-      <div class="row">
-        <div class="input-field col s6">
-            <textarea value="{{ recipe.recipe_desc }}" id="recipe_desc" name="recipe_desc" class="materialize-textarea">{{ recipe.recipe_desc }}</textarea>
-            <label for="recipe_desc">Recipe description</label>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea value="{{ recipe.recipe_desc }}" id="recipe_desc" name="recipe_desc" class="materialize-textarea">{{ recipe.recipe_desc }}</textarea>
+                <label for="recipe_desc">Recipe description</label>
+            </div>
         </div>
-        
-        <div class="input-field col s6">
-            <textarea value="{{ recipe.ingredients }}" id="ingredients" name="ingredients" class="materialize-textarea">{{ recipe.ingredients }}</textarea>
-            <label for="ingredients">Ingredients</label>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea value="{{ recipe.ingredients }}" id="ingredients" name="ingredients" class="materialize-textarea">{{ recipe.ingredients }}</textarea>
+                <label for="ingredients">Ingredients</label>
+            </div>
         </div>
-      </div>
       
       <div class="row">
             <div class="input-field col s12">
@@ -55,21 +56,19 @@
       </div>
       
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12 m6">
               <input value="{{ recipe.image }}" id="image" name="image" type="text" class="validate">
                 <label for="image">Image source</label>
             </div>
             
-            <div class="col s6">
-                
+            <div class="col s12 m6">
                <div class="switch">
-                <label>
-                  <input value="{{ recipe.is_vegetarian }}" id="is_vegetarian" name="is_vegetarian" type="checkbox">
-                  <span class="lever"></span>
-                  Vegetarian
-                </label>
-            </div>
-        
+                    <label>
+                    <input value="{{ recipe.is_vegetarian }}" id="is_vegetarian" name="is_vegetarian" type="checkbox">
+                    <span class="lever"></span>
+                    Vegetarian
+                    </label>
+                </div>
             </div>
         </div>
 </div>
