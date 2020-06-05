@@ -26,7 +26,23 @@ def get_shopping():
     
 @app.route('/get_recipes')
 def get_recipes():
-    return render_template("recipes.html", recipe=mongo.db.recipes.find())
+    return render_template("recipe_type.html", recipe=mongo.db.recipes.find())
+
+@app.route('/breakfast')
+def breakfast():
+    return render_template("breakfast.html", recipe=mongo.db.recipes.find())
+
+@app.route('/mainmeals')
+def mainmeals():
+    return render_template("mainmeals.html", recipe=mongo.db.recipes.find())
+
+@app.route('/desserts')
+def desserts():
+    return render_template("desserts.html", recipe=mongo.db.recipes.find())
+
+@app.route('/snacks')
+def snacks():
+    return render_template("snacks.html", recipe=mongo.db.recipes.find())
     
 @app.route('/get_full_recipe/<recipe_id>')
 def get_full_recipe(recipe_id):
@@ -71,7 +87,7 @@ def delete_item(item_id):
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id':ObjectId(recipe_id)})
-    return render_template("recipes.html", recipe=mongo.db.recipes.find())
+    return render_template("recipe_type.html", recipe=mongo.db.recipes.find())
     
 @app.route('/update_item/<item_id>', methods=["POST"])
 def update_item(item_id):

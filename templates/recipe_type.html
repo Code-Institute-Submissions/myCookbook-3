@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% block content %}
+
+<h3 class="center bot_marg mobile_header">Choose type of recipe</h3>
+<div class="container top_marg">
+
+
+<div class="row">
+    <a href="{{ url_for('breakfast') }}">
+    <div class="col s12 l5 brt_img valign-wrapper mob_mar_bot">
+        <div class="header-back valign-wrapper">
+            <h5 class="type_headers">Breakfast</h5>
+        </div>
+    </div>
+    </a>
+    <a href="{{ url_for('mainmeals') }}">
+    <div class="col s12 l5 offset-l2 mmrt_img valign-wrapper">
+        <div class="header-back valign-wrapper">
+            <h5 class="type_headers">Main meals</h5>
+        </div>
+        
+    </div>
+    </a>
+    
+</div>
+<div class="row">
+    <a href="{{ url_for('desserts') }}">
+    <div class="col s12 l5 drt_img valign-wrapper mob_mar_bot">
+        <div class="header-back valign-wrapper">
+            <h5 class="type_headers">Desserts</h5>
+        </div>
+    </div>
+    </a>
+    <a href="{{ url_for('snacks') }}">
+    <div class="col s12 l5 offset-l2 srt_img valign-wrapper">
+        <div class="header-back valign-wrapper">
+            <h5 class="type_headers">Snacks</h5>
+        </div>
+    </div>
+    </a>
+</div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html'%} {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col m2">
+            <a href="{{ url_for('get_recipes') }}">
+                <span class="material-icons back_icon">arrow_back</span>
+            </a>  
+        </div>
+
+        <div class="col m8">
+            <h2 class="fullrec_header center">Breakfast</h2>
+        </div>
+    </div>
+    <a href="{{ url_for('add_recipe') }}" class="waves-effect waves-light btn  blue">Add a Recipe</a>
+
+
+    <ul class="collapsible" data-collapsible="accordion">
+            {% for r in recipe %}
+                {% if r.category == "Breakfast" %}
+                <li>
+                    <div class="row collapsible-header">
+                        
+                        <div class="col s12 recipe_header">
+                            <strong>{{ r.recipe_name }}</strong>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="row collapsible-body">
+                    
+                    <div class="col s12 m6 l3">
+                        <img src="{{ r.image }}" class="recipe_img"></img>
+                    </div>
+                    <div class="col s12 m6 l6 (offset-by-l3)">
+                        <span>
+                        {{r.recipe_desc}} 
+                    </span>
+                    </div>
+                    <div class="center col s12 m12 l3">
+
+                            <p><strong>{{ r.category }}</strong></p>
+                            <p id="prep_para"><strong>Prep time:</strong> {{r.prep_time}}</p>
+                            <p><strong>Cook time:</strong> {{r.cook_time}}</p>
+                            <p>
+                            
+                                {% if r.is_vegetarian %}
+                                    <img src="{{ url_for('static', filename='img/veggie.jpg') }}" id="veggie">
+                                {% endif %}
+                            
+                            </p>
+                            <a href="{{ url_for('get_full_recipe', recipe_id=r._id) }}" class="waves-effect waves-light btn blue">See full recipe</a>
+                            
+                        
+                    </div>
+                    
+                    
+                    </div>
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+</div>
+{% endblock %}
